@@ -1,8 +1,16 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.svg';
+import React, { Component } from 'react';
+import socket from './socket';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { join } from './actions/';
 
 class App extends Component {
+  componentWillMount() {
+    this.props.join();
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,4 +26,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ join }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(App);

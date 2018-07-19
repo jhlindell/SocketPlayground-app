@@ -2,10 +2,26 @@
   "name": "socket-playground-app",
   "version": "0.1.0",
   "private": true,
+  "author": "Jon Lindell",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhlindell/SocketPlayground-app"
+  },
   "dependencies": {
+    "ajv": "^6.5.2",
+    "bootstrap": "^4.1.2",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "reactstrap": "^6.3.0",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "socket.io-client": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
