@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import LoginInDisplay from './LogInDisplay';
-import { login } from '../actions';
+import { login, logout } from '../actions';
+import UserDisplay from './UserDisplay';
 
 
 class LogInContainer extends Component {
@@ -24,15 +25,22 @@ class LogInContainer extends Component {
   }
 
   render(){
+    console.log('user: ', this.props.user);
     return (
       <div>
-        <LoginInDisplay 
-          handleInputChange={ this.handleInputChange }
-          handleFormSubmit={ this.handleFormSubmit }
-          name={ this.state.name }
-          tagline={ this.state.tagline }
-          { ...this.props }
-        />
+        {!this.props.user ? 
+          (<LoginInDisplay 
+            handleInputChange={ this.handleInputChange }
+            handleFormSubmit={ this.handleFormSubmit }
+            name={ this.state.name }
+            tagline={ this.state.tagline }
+            { ...this.props }
+          />) :
+          (<UserDisplay
+            logout={ this.props.logout }
+            user={ this.props.user }
+            { ...this.props }
+          />)}
       </div>
     );
   }
@@ -43,7 +51,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ login }, dispatch);
+  return bindActionCreators({ login, logout }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogInContainer);

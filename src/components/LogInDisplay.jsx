@@ -34,7 +34,9 @@ const LogInDisplay = (props) => {
   return (
     <Card className={classes.card}>
       <CardHeader className={classes.header}>
-        LogIn
+        <Typography variant="title">
+          LogIn
+        </Typography>
       </CardHeader>
       <CardContent className={classes.content}>
         <form className={classes.container} 
