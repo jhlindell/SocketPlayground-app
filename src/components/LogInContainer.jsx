@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import LoginInDisplay from './LogInDisplay';
 import { login, logout } from '../actions';
+import React, { Component } from 'react';
 import UserDisplay from './UserDisplay';
 
 
@@ -25,7 +25,6 @@ class LogInContainer extends Component {
   }
 
   render(){
-    console.log('user: ', this.props.user);
     return (
       <div>
         {!this.props.user ? 

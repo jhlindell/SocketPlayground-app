@@ -1,12 +1,14 @@
-import React from 'react';
-import NavBar from './NavBar';
+import ChatContainer from './ChatContainer';
 import Login from './LogInContainer';
+import NavBar from './NavBar';
+import React from 'react';
+import UserListContainer from './UserListContainer';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   container: {
     display: 'grid',
-    gridTemplateColumns: '30% 30% 40%',
+    gridTemplateColumns: '25% 30% 45%',
   },
 
   firstColumn: {
@@ -18,6 +20,11 @@ const styles = {
     gridColumnStart: '2',
     gridColumnEnd: '3',
   },
+
+  thirdColumn: {
+    gridColumnStart: '3',
+    gridColumnEnd: '4',
+  }
 }
 
 const MainDisplay = (props) => {
@@ -28,6 +35,12 @@ const MainDisplay = (props) => {
         <div className={classes.container}>
           <div className={classes.firstColumn}>
             <Login />
+          </div>
+          <div className={classes.secondColumn}>
+            <UserListContainer />
+          </div>
+          <div className={classes.thirdColumn}>
+            <ChatContainer />
           </div>
         </div>
     </div>
