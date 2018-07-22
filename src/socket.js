@@ -1,4 +1,4 @@
-import store from './createStore';
+// import store from './createStore';
 
 const socket = require('socket.io-client')('localhost:8000', {jsonp: false});
 

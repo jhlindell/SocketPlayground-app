@@ -21,8 +21,22 @@ function messageReducer(state = [], action){
   }
 }
 
+function userReducer(state=null, action){
+  switch(action.type){
+    case 'LOGIN_USER':
+      return action.payload;
+
+    case 'LOGOUT_USER':
+      return null;
+
+    default:
+      return state;
+  }
+}
+
 const appReducer = combineReducers({
   messageReducer,
+  userReducer,
 });
 
 export default appReducer;
