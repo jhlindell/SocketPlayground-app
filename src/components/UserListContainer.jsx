@@ -6,13 +6,13 @@ import UserListDisplay from './UserListDisplay';
 class UserListContainer extends Component{
   render(){
     return (
-      <UserListDisplay />
+      <UserListDisplay userList={this.props.userList}/>
     );
   }
 }
 
 function mapStateToProps(state){
-  return { chatMessages: state.chatMessageReducer }
+  return { userList: state.userListReducer }
 }
 
 export default connect(mapStateToProps, null)(UserListContainer);

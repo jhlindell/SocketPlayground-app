@@ -32,24 +32,16 @@ const UserListDisplay = (props) => {
       </CardHeader>
       <CardContent>
         <List>
-          <ListItem>
-            <Avatar>
-              <ImageIcon />
-            </Avatar>
-            <ListItemText primary="Jeph" secondary="Knows what's up" />
-          </ListItem>
-          <ListItem>
-            <Avatar>
-              <WorkIcon />
-            </Avatar>
-            <ListItemText primary="Betty" secondary="Betty is sweaty" />
-          </ListItem>
-          <ListItem>
-            <Avatar>
-              <WorkIcon />
-            </Avatar>
-            <ListItemText primary="Bob" secondary="Just plain Bob" />
-          </ListItem>
+          {props.userList && props.userList.map((user) => {
+            return (
+              <ListItem key={user.name}>
+                <Avatar>
+                  <ImageIcon />
+                </Avatar>
+                <ListItemText primary={user.name} secondary={user.tagline} />
+              </ListItem>
+            );
+          })}
         </List>
       </CardContent>
     </Card>

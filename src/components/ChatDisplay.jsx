@@ -1,7 +1,11 @@
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardContent';
 import CardContent from '@material-ui/core/CardContent';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -33,6 +37,7 @@ const styles = {
   },
   list: {
     flex: 1,
+    overflowY: 'auto',
   }
 }
 
@@ -46,9 +51,18 @@ const ChatDisplay = (props) => {
         </Typography>
       </CardHeader>
       <CardContent className={classes.content}>
-        <div className={classes.list}>
-          buncha shit
-        </div>
+        <List className={classes.list}>
+          {props.messageList && props.messageList.map((message) => {
+            return (
+              <ListItem key={message.timestamp}>
+                <Avatar>
+                  {message.username[0]}
+                </Avatar>
+                <ListItemText primary={message.username} secondary={message.message} />
+              </ListItem>
+            )
+          })}
+        </List>
         <form 
           autoComplete="off"
           onSubmit={props.handleFormSubmit}
