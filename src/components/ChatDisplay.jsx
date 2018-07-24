@@ -47,14 +47,14 @@ const ChatDisplay = (props) => {
     <Card className={classes.card}>
       <CardHeader className={classes.header}>
         <Typography variant="title">
-        Room 1
+          {props.user ? "Room " + props.user.room : "No Room Selected"}
         </Typography>
       </CardHeader>
       <CardContent className={classes.content}>
         <List className={classes.list}>
           {props.messageList && props.messageList.map((message) => {
             return (
-              <ListItem key={message.timestamp}>
+              <ListItem key={message.timeStamp}>
                 <Avatar>
                   {message.username[0]}
                 </Avatar>

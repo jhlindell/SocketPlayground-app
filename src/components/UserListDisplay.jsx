@@ -5,11 +5,11 @@ import CardHeader from '@material-ui/core/CardContent';
 import ImageIcon from '@material-ui/icons/Image';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '../../node_modules/@material-ui/core';
-import WorkIcon from '@material-ui/icons/Work';
 
 
 const styles = {
@@ -39,6 +39,9 @@ const UserListDisplay = (props) => {
                   <ImageIcon />
                 </Avatar>
                 <ListItemText primary={user.name} secondary={user.tagline} />
+                <ListItemSecondaryAction>
+                  room {user.room}
+                </ListItemSecondaryAction>
               </ListItem>
             );
           })}

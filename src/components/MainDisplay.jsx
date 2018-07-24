@@ -2,6 +2,7 @@ import ChatContainer from './ChatContainer';
 import Login from './LogInContainer';
 import NavBar from './NavBar';
 import React from 'react';
+import RoomSelectContainer from './RoomSelectContainer';
 import UserListContainer from './UserListContainer';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -35,6 +36,7 @@ const MainDisplay = (props) => {
         <div className={classes.container}>
           <div className={classes.firstColumn}>
             <Login />
+            <RoomSelectContainer />
           </div>
           <div className={classes.secondColumn}>
             <UserListContainer />
