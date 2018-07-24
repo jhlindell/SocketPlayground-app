@@ -1,20 +1,30 @@
 import socket from '../socket';
 
-export function join() {
+export function join(room) {
   return (dispatch) => {
-    console.log('joining room one');
-    socket.emit('join', 1);
+    socket.emit('join', room);
   }
 }
 
-export function addMessageToContainer(message){
-  const timeStamp = new Date().toString();
-  const id = message + timeStamp;
-  const messageObject = { message, id}
-  return {type: 'ADD_MESSAGE', payload: messageObject};
+export function login(name, tagline){
+  return (dispatch) => {
+    socket.emit('login', {name, tagline});
+    dispatch({ type: 'LOGIN_USER', payload: { name, tagline }});
+  }
 }
 
-export function clearMessage(id){
-  return {type: 'CLEAR_MESSAGE', payload: id};
+export function logout(){
+  return (dispatch) => {
+    socket.emit('logout');
+    dispatch({ type: 'LOGOUT_USER' });
+  }
+  
 }
 
+export function setUserList(userList){
+  return { type: 'SET_USER_LIST', payload: userList };
+}
+
+export function setChatMessages(messageList){
+  return { type: 'MESSAGE_LIST', payload: messageList };
+}
