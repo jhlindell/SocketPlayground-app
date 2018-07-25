@@ -10,9 +10,17 @@ const styles = {
   card: {
     margin: '20px',
   },
+  content: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
   header: {
     backgroundColor: 'lightgray',
   },
+  button: {
+    margin: '10px',
+  }
 };
 
 const RoomSelectDisplay = (props) => {
@@ -24,27 +32,40 @@ const RoomSelectDisplay = (props) => {
           Select Room
         </Typography>
       </CardHeader>
-      <CardContent>
+      <CardContent className={classes.content}>
+        Room Selection:
         <Button 
-          variant="contained" 
+          className={classes.button}
+          variant="outlined" 
           onClick={() => props.changeRoom(1)}
           color="primary"
         >
           Room 1
         </Button>
         <Button 
-          variant="contained" 
+          className={classes.button}
+          variant="outlined" 
           onClick={() => props.changeRoom(2)}
           color="primary"
         >
           Room 2
         </Button>
         <Button 
-          variant="contained" 
+          className={classes.button}
+          variant="outlined" 
           onClick={() => props.changeRoom(3)}
           color="primary"
         >
           Room 3
+        </Button>
+        Don't press this button:
+        <Button 
+          className={classes.button}
+          variant="outlined" 
+          onClick={() => props.spam()}
+          color="primary"
+        >
+          Spam
         </Button>
       </CardContent>
     </Card>

@@ -1,5 +1,5 @@
 import ChatContainer from './ChatContainer';
-import Login from './LogInContainer';
+import LoginContainer from './LogInContainer';
 import NavBar from './NavBar';
 import React from 'react';
 import RoomSelectContainer from './RoomSelectContainer';
@@ -25,26 +25,41 @@ const styles = {
   thirdColumn: {
     gridColumnStart: '3',
     gridColumnEnd: '4',
+  },
+  card: {
+    display: 'flex',
+    margin: 'auto',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '90vh',
+  },
+  main: {
+    height: '100vh',
   }
 }
 
 const MainDisplay = (props) => {
   const { classes } = props;
   return (
-    <div>
+    <div className={classes.main}>
       <NavBar />
-        <div className={classes.container}>
-          <div className={classes.firstColumn}>
-            <Login />
-            <RoomSelectContainer />
-          </div>
-          <div className={classes.secondColumn}>
-            <UserListContainer />
-          </div>
-          <div className={classes.thirdColumn}>
-            <ChatContainer />
-          </div>
+      {!props.user ? (
+        <div className={classes.card}>
+          <LoginContainer />
         </div>
+      ) : (
+      <div className={classes.container}>
+        <div className={classes.firstColumn}>
+          <LoginContainer />
+          <RoomSelectContainer />
+        </div>
+        <div className={classes.secondColumn}>
+          <UserListContainer />
+        </div>
+        <div className={classes.thirdColumn}>
+          <ChatContainer />
+        </div>
+      </div>)}
     </div>
   )
 };

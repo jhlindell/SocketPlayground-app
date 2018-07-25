@@ -44,3 +44,9 @@ export function changeRoom(roomNumber){
 export function userRoomChange(user){
   return { type: 'ROOM_CHANGE', payload: user };
 }
+
+export function spam(){
+  return () => {
+    socket.emit('spam');
+  }
+}

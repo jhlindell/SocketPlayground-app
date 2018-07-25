@@ -33,7 +33,7 @@ const styles = {
   },
   textField: {
     marginRight: '15px',
-    width: '70%',
+    width: '75%',
   },
   list: {
     flex: 1,
