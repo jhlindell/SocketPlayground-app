@@ -40,10 +40,24 @@ function userListReducer(state=null, action){
   }
 }
 
+function privateMessageReducer(state={ openState: false, username: null } , action){
+  switch(action.type){
+    case 'OPEN_PRIVATE_MESSAGE':
+      return { openState: true, username: action.payload };
+    
+    case 'CLOSE_PRIVATE_MESSAGE':
+      return { openState: false, username: null };
+
+    default:
+      return state;
+  }
+}
+
 const appReducer = combineReducers({
   messageReducer,
   userReducer,
   userListReducer,
+  privateMessageReducer
 });
 
 export default appReducer;

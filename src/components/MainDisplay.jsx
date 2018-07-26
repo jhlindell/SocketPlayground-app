@@ -1,6 +1,7 @@
 import ChatContainer from './ChatContainer';
 import LoginContainer from './LogInContainer';
 import NavBar from './NavBar';
+import PMContainer from './PMContainer';
 import React from 'react';
 import RoomSelectContainer from './RoomSelectContainer';
 import UserListContainer from './UserListContainer';
@@ -60,6 +61,7 @@ const MainDisplay = (props) => {
           <ChatContainer />
         </div>
       </div>)}
+      <PMContainer />
     </div>
   )
 };

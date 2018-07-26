@@ -4,7 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardContent';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '../../node_modules/@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   card: {
@@ -20,6 +20,15 @@ const styles = {
   },
   button: {
     margin: '10px',
+  },
+  hr: {
+    width: '100%',
+    marginTop: '5px',
+    marginBottom: '10px'
+  },
+  text: {
+    marginTop: '5px',
+    marginBottom: '5px'
   }
 };
 
@@ -33,7 +42,9 @@ const RoomSelectDisplay = (props) => {
         </Typography>
       </CardHeader>
       <CardContent className={classes.content}>
-        Room Selection:
+        <div className={classes.text}>
+          Room Selection:
+        </div>
         <Button 
           className={classes.button}
           variant="outlined" 
@@ -58,12 +69,15 @@ const RoomSelectDisplay = (props) => {
         >
           Room 3
         </Button>
-        Don't press this button:
+        <hr className={classes.hr}/>
+        <div className={classes.text}>
+          Don't press this button:
+        </div>
         <Button 
           className={classes.button}
           variant="outlined" 
           onClick={() => props.spam()}
-          color="primary"
+          color="secondary"
         >
           Spam
         </Button>

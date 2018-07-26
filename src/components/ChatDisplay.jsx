@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '../../node_modules/@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   card: {
@@ -21,10 +21,6 @@ const styles = {
   },
   button: {
     marginLeft: '15px'
-  },
-  footer: {
-    // position: 'fixed',
-    // bottom: 0,
   },
   content: {
     display: 'flex',

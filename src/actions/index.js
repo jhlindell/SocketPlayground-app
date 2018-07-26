@@ -1,7 +1,7 @@
 import socket from '../socket';
 
 export function join(room) {
-  return (dispatch) => {
+  return () => {
     socket.emit('join', room);
   }
 }
@@ -29,7 +29,7 @@ export function addChatMessage(message){
 }
 
 export function postMessage(message){
-  return (dispatch) => {
+  return () => {
     socket.emit('message', message);
   }
 }
@@ -48,5 +48,20 @@ export function userRoomChange(user){
 export function spam(){
   return () => {
     socket.emit('spam');
+  }
+}
+
+export function setUpPrivateMessage(username){
+  return { type: 'OPEN_PRIVATE_MESSAGE', payload: username };
+}
+
+export function closePrivateMessage(){
+  return { type: 'CLOSE_PRIVATE_MESSAGE' };
+}
+
+export function sendPrivateMessage(username, message){
+  return (dispatch) => {
+    socket.emit('privateMessage', { username, message });
+    dispatch({ type: 'CLOSE_PRIVATE_MESSAGE' });
   }
 }
