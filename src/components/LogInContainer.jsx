@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import LoginInDisplay from './LogInDisplay';
 import { login, logout } from '../actions';
 import React, { Component } from 'react';
-import UserDisplay from './UserDisplay';
+import LoginUserDisplay from './LoginUserDisplay';
 
 
 class LogInContainer extends Component {
@@ -35,7 +35,7 @@ class LogInContainer extends Component {
             tagline={ this.state.tagline }
             { ...this.props }
           />) :
-          (<UserDisplay
+          (<LoginUserDisplay
             logout={ this.props.logout }
             user={ this.props.user }
             { ...this.props }

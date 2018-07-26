@@ -1,16 +1,17 @@
-import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardContent';
-import ImageIcon from '@material-ui/icons/Image';
+import Chip from '@material-ui/core/Chip';
+import CommentIcon from '@material-ui/icons/Comment';
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
+import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '../../node_modules/@material-ui/core';
-import WorkIcon from '@material-ui/icons/Work';
-
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   card: {
@@ -33,12 +34,20 @@ const UserListDisplay = (props) => {
       <CardContent>
         <List>
           {props.userList && props.userList.map((user) => {
+            const chipLabel = `room ${user.room}`
             return (
               <ListItem key={user.name}>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
                 <ListItemText primary={user.name} secondary={user.tagline} />
+                <ListItemSecondaryAction>
+                  {props.user.name !== user.name && <IconButton 
+                    onClick={()=> props.setUpPrivateMessage(user.name)}
+                  >
+                    <CommentIcon />
+                  </IconButton>}
+                  <Slide direction='left' in={true} mountOnEnter unmountOnExit>
+                    <Chip label={chipLabel} />
+                  </Slide>
+                </ListItemSecondaryAction>
               </ListItem>
             );
           })}

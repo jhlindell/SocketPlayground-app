@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ChatDisplay from './ChatDisplay';
 import React, { Component } from 'react';
-import { postMessage } from '../actions/socketActions';
+import { postMessage } from '../actions';
 
 class ChatContainer extends Component {
   constructor(props){
@@ -30,6 +30,7 @@ class ChatContainer extends Component {
           handleInputChange={ this.handleInputChange }
           handleFormSubmit={ this.handleFormSubmit }
           messageList={ this.props.messageList }
+          user= { this.props.user }
         />
       </div>
     );
@@ -37,7 +38,7 @@ class ChatContainer extends Component {
 }
 
 function mapStateToProps(state){
-  return { messageList: state.messageReducer };
+  return { messageList: state.messageReducer, user: state.userReducer };
 }
 
 function mapDispatchToProps(dispatch){

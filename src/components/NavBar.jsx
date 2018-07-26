@@ -17,7 +17,7 @@ const NavBar = (props) => {
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="title" color="inherit">
-                  Socket.io Playground
+                  Socket.io Chatroom
                 </Typography>
             </Toolbar>
         </AppBar>

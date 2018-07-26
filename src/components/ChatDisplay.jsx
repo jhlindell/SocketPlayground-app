@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '../../node_modules/@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   card: {
@@ -22,10 +22,6 @@ const styles = {
   button: {
     marginLeft: '15px'
   },
-  footer: {
-    // position: 'fixed',
-    // bottom: 0,
-  },
   content: {
     display: 'flex',
     flexDirection: 'column',
@@ -33,7 +29,7 @@ const styles = {
   },
   textField: {
     marginRight: '15px',
-    width: '70%',
+    width: '75%',
   },
   list: {
     flex: 1,
@@ -47,14 +43,14 @@ const ChatDisplay = (props) => {
     <Card className={classes.card}>
       <CardHeader className={classes.header}>
         <Typography variant="title">
-        Room 1
+          {props.user ? "Room " + props.user.room : "No Room Selected"}
         </Typography>
       </CardHeader>
       <CardContent className={classes.content}>
         <List className={classes.list}>
           {props.messageList && props.messageList.map((message) => {
             return (
-              <ListItem key={message.timestamp}>
+              <ListItem key={message.timeStamp}>
                 <Avatar>
                   {message.username[0]}
                 </Avatar>

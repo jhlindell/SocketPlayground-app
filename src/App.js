@@ -1,25 +1,22 @@
-import './App.css';
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import { join } from './actions/';
-import MainDisplay from './components/MainDisplay';
-class App extends Component {
-  componentWillMount() {
-    this.props.join(1);
-  }
+import React from 'react';
+import MainDisplayContainer from './components/MainDisplayContainer';
 
-  render() {
-    return (
-      <div className="App">
-        <MainDisplay />
-      </div>
-    );
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+    width: '100%',
+    textAlign: 'center',
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({ join }, dispatch);
+const App = () => {
+  return (
+    <div style={styles.container}>
+      <MainDisplayContainer />   
+    </div>
+  );
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default App;
