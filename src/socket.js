@@ -1,7 +1,7 @@
 import store from './createStore';
 import * as otherActions from './actions/index';
 
-const socket = require('socket.io-client')('localhost:8000', {jsonp: false});
+const socket = require('socket.io-client')('https://socketio-demochat.herokuapp.com/', {jsonp: false});
 
 socket.on('userList', (userList) => {
   store.dispatch(otherActions.setUserList(userList));
