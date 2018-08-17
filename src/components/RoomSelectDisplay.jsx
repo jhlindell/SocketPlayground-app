@@ -79,7 +79,7 @@ const RoomSelectDisplay = (props) => {
           onClick={() => props.spam()}
           color="secondary"
         >
-          Spam
+          Kanye
         </Button>
       </CardContent>
     </Card>

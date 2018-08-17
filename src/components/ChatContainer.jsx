@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ChatDisplay from './ChatDisplay';
 import React, { Component } from 'react';
-import { postMessage } from '../actions';
+import { postNewMessage } from '../actions';
 
 class ChatContainer extends Component {
   constructor(props){
@@ -18,7 +18,7 @@ class ChatContainer extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    this.props.postMessage(this.state.message);
+    this.props.postNewMessage(this.state.message);
     this.setState({ message: '' });
   }
 
@@ -42,7 +42,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ postMessage }, dispatch);
+  return bindActionCreators({ postNewMessage }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatContainer);

@@ -24,11 +24,11 @@ export function setUserList(userList){
   return { type: 'SET_USER_LIST', payload: userList };
 }
 
-export function addChatMessage(message){
+export function addChatMessageToList(message){
   return { type: 'NEW_MESSAGE', payload: message };
 }
 
-export function postMessage(message){
+export function postNewMessage(message){
   return () => {
     socket.emit('message', message);
   }
