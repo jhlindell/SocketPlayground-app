@@ -13,6 +13,6 @@ socket.on('roomChanged', (user) => {
 
 socket.on('newMessage', (message) => {
   store.dispatch(actions.addChatMessageToList(message));
-})
+});
 
 export default socket;
