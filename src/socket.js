@@ -1,7 +1,8 @@
 import store from './createStore';
 import * as actions from './actions/index';
+const WS = process.env.REACT_APP_WS;
 
-const socket = require('socket.io-client')('https://socketio-demochat-server.herokuapp.com/');
+const socket = require('socket.io-client')(WS);
 
 socket.on('userList', (userList) => {
   store.dispatch(actions.setUserList(userList));
